@@ -1,0 +1,32 @@
+{
+ "name": "Graphics Design for Marketplaces",
+ "short_name": "NUVIA Learn",
+ "description": "Free interactive design courses by NUVIA Creatives",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#0a1b3d",
+ "theme_color": "#0a1b3d",
+ "lang": "bn",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}

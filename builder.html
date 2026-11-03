@@ -1,0 +1,47 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NUVIA Course Builder</title><meta name="robots" content="noindex">
+<style>:root{--n:#0a1b3d;--g:#f2b632;--bd:#d5ddee}*{box-sizing:border-box}body{margin:0;background:#eef2f8;color:var(--n);font:16px/1.5 system-ui,"Noto Sans Bengali",sans-serif}#w{max-width:760px;margin:0 auto;padding:14px}
+header{background:var(--n);color:#fff;padding:14px 16px;border-radius:12px;margin-bottom:12px}header b{color:var(--g)}header small{display:block;color:#b9c4e4}
+.c{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:14px;margin:10px 0}label{display:block;font-size:13px;font-weight:600;margin-top:8px}small{color:#56627f;font-weight:400}
+input,textarea,select{width:100%;padding:9px;border:1px solid var(--bd);border-radius:8px;font:inherit;background:#fff;color:var(--n)}textarea{min-height:84px}input[type=checkbox]{width:auto}
+button{background:var(--n);color:#fff;border:0;border-radius:8px;padding:9px 14px;font:inherit;cursor:pointer;margin:6px 6px 0 0}button.g{background:var(--g);color:var(--n);font-weight:700}button.x{background:#fde5e1;color:#a32}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}#st{margin-top:8px;font-weight:600}.bar{position:sticky;bottom:0;background:#eef2f8;padding:8px 0}</style></head>
+<body><div id="w"><header><b>NUVIA</b> Course Builder<small>ফর্ম পূরণ করুন, JSON ডাউনলোড করুন, courses ফোল্ডারে রাখুন। কোডিং লাগবে না।</small></header>
+<div class="c"><b>বিদ্যমান কোর্স এডিট করতে</b><label>courses/*.json ফাইল লোড করুন<input type="file" accept=".json" onchange="ld(this.files[0])"></label></div>
+<div class="c" id="meta"></div><div id="steps"></div>
+<div class="c"><label>নতুন ধাপ যোগ করুন</label><select id="nt"><option value="cards">কার্ড (ট্যাপ করে দেখা)</option><option value="place">ড্র্যাগ-ড্রপ গেম</option><option value="mcq">কুইজ</option><option value="lab">কনট্রাস্ট ল্যাব</option></select><button class="g" onclick="add()">+ ধাপ যোগ</button></div>
+<div class="bar"><button class="g" onclick="ex()">⬇ JSON ডাউনলোড</button><button onclick="cp()">📋 JSON কপি</button><div id="st"></div></div><textarea id="out" readonly style="display:none;min-height:160px"></textarea></div>
+<script>
+let D={id:'my-course',series:'',lv:'Level 1 • Foundation',t:'',d:'',l:'',requires:'',pass:70,steps:[]};
+const $=id=>document.getElementById(id),E=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const TY={cards:'কার্ড',place:'ড্র্যাগ-ড্রপ গেম',mcq:'কুইজ',lab:'কনট্রাস্ট ল্যাব'};
+const NW={cards:()=>({t:'cards',h:'',q:'ট্যাপ করে দেখুন।',c:[['','']]}),place:()=>({t:'place',h:'',q:'',z:['',''],it:[['',0],['',1]],cap:0}),mcq:()=>({t:'mcq',h:'',q:'',o:['','','',''],a:0,w:''}),lab:()=>({t:'lab'})};
+const lines=v=>v.split('\n').map(x=>x.trim()).filter(Boolean);
+function f(i,k,v){D.steps[i][k]=v}
+function m(k,v){D[k]=v}
+function pc(i,v){D.steps[i].c=lines(v).map(l=>l.split('|').map(x=>x.trim())).map(a=>[a[0],a[1]||''])}
+function pz(i,v){D.steps[i].z=lines(v)}
+function pi(i,v){D.steps[i].it=lines(v).map(l=>{const p=l.split('|');return[p[0].trim(),(parseInt(p[1])||1)-1]})}
+function po(i,v){D.steps[i].o=lines(v)}
+function fld(l,k,v,i){return `<label>${l}<input value="${E(v)}" oninput="${i==null?`m('${k}',this.value)`:`f(${i},'${k}',this.value)`}"></label>`}
+function R(){
+$('meta').innerHTML=`<b>কোর্সের তথ্য</b><div class="row">${fld('কোর্স আইডি (ইংরেজি, ড্যাশ দিয়ে) <small>যেমন seo-basics-1</small>','id',D.id)}${fld('লেভেল/নাম','lv',D.lv)}</div>${fld('সিরিজ (গ্রুপের নাম)','series',D.series)}${fld('সংক্ষিপ্ত ট্যাগ','t',D.t)}${fld('বর্ণনা','d',D.d)}${fld('যা শিখবেন','l',D.l)}<div class="row">${fld('আগে কোন কোর্স শেষ করতে হবে (আইডি, ফাঁকা = খোলা)','requires',D.requires)}<label>পাস মার্ক %<input type="number" min="10" max="100" value="${D.pass}" oninput="m('pass',+this.value)"></label></div>`;
+$('steps').innerHTML=D.steps.map((s,j)=>{let b='';
+if(s.t=='cards')b=fld('শিরোনাম','h',s.h,j)+fld('নির্দেশনা','q',s.q,j)+`<label>কার্ড <small>প্রতি লাইনে: সামনের লেখা | পেছনের লেখা</small><textarea oninput="pc(${j},this.value)">${E(s.c.map(a=>a.join(' | ')).join('\n'))}</textarea></label>`;
+if(s.t=='place')b=fld('শিরোনাম','h',s.h,j)+fld('প্রশ্ন/নির্দেশনা','q',s.q,j)+`<label>ঘর/বাক্সের নাম <small>প্রতি লাইনে একটি (ক্রম হলে ১ম, ২য়...)</small><textarea oninput="pz(${j},this.value)">${E(s.z.join('\n'))}</textarea></label><label>আইটেম <small>প্রতি লাইনে: লেখা | সঠিক ঘরের নম্বর (১, ২, ৩...)</small><textarea oninput="pi(${j},this.value)">${E(s.it.map(x=>x[0]+' | '+(x[1]+1)).join('\n'))}</textarea></label><label><input type="checkbox" ${s.cap?'checked':''} onchange="f(${j},'cap',this.checked?1:0)"> প্রতি ঘরে মাত্র ১টি আইটেম (ক্রম সাজানোর জন্য)</label>`;
+if(s.t=='mcq')b=fld('শিরোনাম','h',s.h,j)+fld('প্রশ্ন','q',s.q,j)+`<label>অপশন <small>প্রতি লাইনে একটি (২-৪টি)</small><textarea oninput="po(${j},this.value)">${E(s.o.join('\n'))}</textarea></label><label>সঠিক অপশনের নম্বর<input type="number" min="1" max="4" value="${s.a+1}" oninput="f(${j},'a',(+this.value||1)-1)"></label>${fld('ব্যাখ্যা (উত্তরের পর দেখাবে)','w',s.w,j)}`;
+if(s.t=='lab')b='<p><small>স্থির কনটেন্ট: কনট্রাস্ট ল্যাব (+২০ পয়েন্ট)</small></p>';
+return `<div class="c"><b>${j+1}. ${TY[s.t]}</b> <button onclick="mv(${j},-1)">↑</button><button onclick="mv(${j},1)">↓</button><button class="x" onclick="del(${j})">মুছুন</button>${b}${fld('পেঙ্গুর টিপ (ঐচ্ছিক)','tip',s.tip,j)}</div>`}).join('')}
+function add(){D.steps.push(NW[$('nt').value]());R();scrollTo(0,document.body.scrollHeight)}
+function mv(j,d){const k=j+d;if(k<0||k>=D.steps.length)return;[D.steps[j],D.steps[k]]=[D.steps[k],D.steps[j]];R()}
+function del(j){if(D.steps[j].t&&confirm('এই ধাপ মুছবেন?')){D.steps.splice(j,1);R()}}
+function ld(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{D=Object.assign({id:'',series:'',lv:'',t:'',d:'',l:'',requires:'',pass:70},JSON.parse(r.result));D.pass=Math.round((D.pass<=1?D.pass*100:D.pass));R();$('st').textContent='✅ লোড হয়েছে'}catch(e){$('st').textContent='❌ JSON পড়া যায়নি'}};r.readAsText(file)}
+function chk(){const e=[];if(!/^[a-z0-9-]+$/.test(D.id))e.push('কোর্স আইডি শুধু ছোট ইংরেজি অক্ষর, সংখ্যা ও ড্যাশ');if(!D.lv)e.push('লেভেল/নাম দিন');if(!D.steps.length)e.push('কমপক্ষে ১টি ধাপ দিন');
+D.steps.forEach((s,j)=>{const n='ধাপ '+(j+1)+': ';if(s.t!='lab'&&!s.h)e.push(n+'শিরোনাম নেই');
+if(s.t=='cards'&&!(s.c||[]).length)e.push(n+'কার্ড নেই');
+if(s.t=='place'){if((s.z||[]).length<2)e.push(n+'কমপক্ষে ২টি ঘর');if((s.it||[]).some(x=>x[1]<0||x[1]>=s.z.length))e.push(n+'আইটেমের ঘরের নম্বর ভুল');if(s.cap&&s.it.length>s.z.length)e.push(n+'ঘরের চেয়ে আইটেম বেশি')}
+if(s.t=='mcq'){if((s.o||[]).length<2)e.push(n+'কমপক্ষে ২টি অপশন');else if(s.a<0||s.a>=s.o.length)e.push(n+'সঠিক অপশনের নম্বর ভুল');if(!s.q)e.push(n+'প্রশ্ন নেই')}});return e}
+function out(){const o={id:D.id,series:D.series,lv:D.lv,t:D.t,d:D.d,l:D.l,pass:(D.pass||70)/100};if(D.requires)o.requires=D.requires;if(D.ba)o.ba=true;o.steps=D.steps.map(s=>{const c=Object.assign({},s);if(!c.tip)delete c.tip;if(c.cap===0)delete c.cap;return c});return JSON.stringify(o,null,1)}
+function ex(){const e=chk();if(e.length){$('st').innerHTML='❌ '+e.map(E).join('<br>❌ ');return}const b=new Blob([out()],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=D.id+'.json';a.click();$('st').innerHTML='✅ ডাউনলোড হয়েছে। এখন <b>courses/catalog.json</b>-এ "'+E(D.id)+'.json" যোগ করুন।'}
+function cp(){const e=chk();if(e.length){$('st').innerHTML='❌ '+e.map(E).join('<br>❌ ');return}const t=out();$('out').style.display='block';$('out').value=t;try{navigator.clipboard.writeText(t).then(()=>$('st').textContent='✅ কপি হয়েছে',()=>{$('out').select();$('st').textContent='নিচের বক্স থেকে হাতে কপি করুন'})}catch(x){$('out').select()}}
+R();
+</script></body></html>

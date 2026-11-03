@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0a1b3d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="NUVIA Learn">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Graphics Design for Marketplaces | NUVIA Creatives</title>
+<style>
+:root{--bg:#f3f5fb;--cd:#fff;--tx:#141a33;--mu:#5d6482;--ac:#2f4bff;--ac2:#e6eaff;--hi:#ffd23f;--ok:#15803d;--okb:#dcf5e5;--no:#c2321f;--nob:#fde5e1;--bd:#d9ddee;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10121c;--cd:#1a1e2e;--tx:#eef0fa;--mu:#a2a8c6;--ac:#7d90ff;--ac2:#252c52;--ok:#5fd68a;--okb:#16301f;--no:#ff8a78;--nob:#3a1b17;--bd:#2f3552;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10121c;--cd:#1a1e2e;--tx:#eef0fa;--mu:#a2a8c6;--ac:#7d90ff;--ac2:#252c52;--ok:#5fd68a;--okb:#16301f;--no:#ff8a78;--nob:#3a1b17;--bd:#2f3552;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 "Noto Sans Bengali","Hind Siliguri",system-ui,-apple-system,"Segoe UI",sans-serif}
+#w{max-width:680px;margin:0 auto;padding:16px}
+.bar{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;margin-bottom:6px}
+.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .5s}
+.meta{display:flex;justify-content:space-between;color:var(--mu);font-size:13px;margin-bottom:14px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:20px}
+h1{font-size:28px;line-height:1.25;margin:0 0 8px}h2{font-size:21px;margin:0 0 6px}
+p{margin:8px 0}.mu{color:var(--mu)}
+button,input{font:inherit}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;margin-top:14px;font-weight:600}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.g{background:var(--ac2);color:var(--ac)}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+input[type=text]{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);margin-top:10px}
+.fl{perspective:800px;display:grid;gap:10px;margin-top:12px}
+.fc{position:relative;min-height:96px;cursor:pointer;transition:transform .5s;transform-style:preserve-3d;border:0;background:none;padding:0;text-align:left;color:inherit}
+.fc.on{transform:rotateX(180deg)}
+.fc>span{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:14px 16px;display:flex;align-items:center}
+.fc .a{background:var(--ac2);font-weight:600}
+.fc .b{background:var(--hi);color:#141a33;transform:rotateX(180deg);font-size:15px;line-height:1.45}
+.pool,.zone{display:flex;flex-wrap:wrap;gap:8px;min-height:50px;padding:10px;border-radius:12px}
+.pool{background:var(--bg);border:1px dashed var(--bd);margin:10px 0}
+.zone{background:var(--cd);border:2px dashed var(--ac);margin-top:10px;flex-direction:column;align-items:stretch}
+.zone b{color:var(--ac);font-size:14px}
+.chip{background:var(--ac2);border:1px solid var(--ac);border-radius:9px;padding:8px 12px;cursor:grab;font-size:15px;user-select:none}
+.chip.sel{background:var(--hi);color:#141a33;border-color:var(--hi);transform:scale(1.04)}
+.chip.ok{background:var(--okb);border-color:var(--ok)}.chip.no{background:var(--nob);border-color:var(--no)}
+.opt{display:block;width:100%;text-align:left;background:var(--cd);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin-top:8px;cursor:pointer}
+.opt.ok{background:var(--okb);border-color:var(--ok)}.opt.no{background:var(--nob);border-color:var(--no)}
+.fb{margin-top:12px;padding:12px;border-radius:10px;background:var(--ac2)}
+.lab{display:flex;align-items:center;justify-content:center;min-height:130px;border-radius:12px;font-size:26px;font-weight:700;text-align:center;padding:12px;margin:10px 0;border:1px solid var(--bd)}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.row input[type=color]{width:56px;height:40px;border:0;background:none;padding:0}
+.cert{text-align:center;border:6px double var(--ac);border-radius:6px;padding:28px 16px;background:var(--cd)}
+.cert h1{color:var(--ac)}.cert .nm{font-size:30px;font-weight:700;border-bottom:3px solid var(--hi);display:inline-block;padding:0 12px;margin:10px 0}
+@media print{body *{visibility:hidden}.cert,.cert *{visibility:visible}.cert{position:absolute;left:0;top:0;width:100%}}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}.lg{width:36px;height:36px;border-radius:10px;background:var(--ac);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}.brand b{display:block;line-height:1.1}.brand small{color:var(--mu);font-size:12px}.ft{text-align:center;color:var(--mu);font-size:12px;margin:16px 0}#ms{min-height:22px;font-size:14px;font-weight:600;color:var(--ac);margin:0 0 8px}.hero{background:#141a33;color:#fff;border-radius:12px;padding:20px;margin-bottom:14px}.hero h1{font-size:30px;margin:6px 0}.hero small{color:var(--hi);font-weight:600}.hero p{color:#cfd4ee}.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.th{height:118px;border-radius:10px;padding:10px 8px 22px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}.th small{position:absolute;bottom:4px;left:0;right:0;font-size:11px;font-weight:700;color:#141a33!important}.th.bad{background:#f3eaa3;color:#dbd187;font-size:11px;line-height:1.2}.th.good{background:#fff;color:#141a33}.th.good b{font-size:24px}.th.good span{font-size:12px;color:#2f4bff;font-weight:600}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:#252c52;border-radius:99px;padding:5px 12px;font-size:13px}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+:root{--bg:#eef2f8;--cd:#fff;--tx:#0a1b3d;--mu:#56627f;--ac:#0f2a5c;--ac2:#e3eaf7;--hi:#f2b632;--bt:#fff;--bd:#d5ddee}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#061431;--cd:#0d2150;--tx:#f4efe0;--mu:#a9b6d6;--ac:#f2b632;--ac2:#16306b;--bt:#0a1b3d;--bd:#23407f}}
+:root[data-theme="dark"]{--bg:#061431;--cd:#0d2150;--tx:#f4efe0;--mu:#a9b6d6;--ac:#f2b632;--ac2:#16306b;--bt:#0a1b3d;--bd:#23407f}
+.btn{color:var(--bt)}.btn.g{color:var(--ac)}.bar i{background:var(--hi)}
+.lg{background:#0a1b3d;color:transparent;font-size:0;padding:4px}.lg svg{width:100%;height:100%}.cert .lg{width:64px;height:64px}
+.pg{width:54px;height:54px;border-radius:50%;border:2px solid var(--hi);flex:none;animation:hop .6s}
+.say{display:flex;gap:10px;align-items:center;margin:0 0 12px}.bb{background:var(--ac2);border-radius:4px 14px 14px 14px;padding:9px 12px;font-size:14px}
+.hero{background:#0a1b3d;border:1px solid #f2b632}.hero .bb{background:#f2b632;color:#0a1b3d;font-weight:600}.chips span{background:#16306b}
+.cf{position:fixed;top:-24px;font-size:22px;animation:fall 1.6s linear forwards;pointer-events:none;z-index:9}
+@keyframes hop{0%{transform:none}40%{transform:translateY(-10px) rotate(-8deg)}100%{transform:none}}
+@keyframes fall{to{transform:translateY(105vh) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.pg,.cf{animation:none}}
+.pg.sv{background:#bfe0fb;overflow:hidden}.pg.sv svg{width:100%;height:100%}
+.cc{border:1px solid var(--bd);border-radius:12px;padding:14px;margin-top:10px;display:flex;gap:12px;align-items:center}.cc.lk{opacity:.55}.cc h3{margin:0;font-size:17px}.mini{height:6px;background:var(--bd);border-radius:6px;overflow:hidden;margin-top:8px}.mini i{display:block;height:100%;background:var(--hi)}
+.sr{margin:18px 0 0;font-weight:700;color:var(--ac)}
+</style></head><body><div id="w"><div class="brand" onclick="home()" role="button" tabindex="0" style="cursor:pointer"><div class="lg"><svg viewBox="0 0 100 100"><g fill="none" stroke="#F2B632" stroke-width="6" stroke-linecap="round"><path d="M72 20A38 38 0 1 0 80 74"/><path d="M62 52Q76 42 82 22"/></g><path d="M32 72V28h8l20 28V28h8v44h-8L40 44v28z" fill="#F2B632"/><path d="M74 14l16-2-6 16z" fill="#F2B632"/></svg></div><div><b>NUVIA Creatives</b><small>Graphics Design for Marketplaces • Free Course</small></div></div><div class="bar"><i id="pb"></i></div><div class="meta"><span id="st"></span><span id="pt"></span></div><div id="ms"></div><div id="sy"></div><div id="app" class="card"></div><div class="ft">Ideas. Design. Build. Grow.<br>© NUVIA Creatives • <a href="https://www.facebook.com/share/1cC2HEqDDu/" target="_blank" rel="noopener" style="color:var(--ac)">Facebook পেজ</a></div></div>
+<script>
+const $=id=>document.getElementById(id);
+
+let i=0,pts=0,name='',st=0,rs=[];
+const G=['দারুণ! 🎉','একদম ঠিক! ⭐','আপনি তো প্রো! 🔥','চমৎকার! 🐧'],B=['সমস্যা নেই, ব্যাখ্যাটা পড়ে নিন 💡','ভুল থেকেই শেখা হয়! 🐧'],R=a=>a[Math.random()*a.length|0];
+const rk=x=>x>=.9?'🥇 Design Pro':x>=.8?'🥈 Rising Designer':'🥉 Marketplace Ready';
+const FORM={u:'',n:'',s:'',c:''};
+const fl=()=>FORM.u?`<a class="btn" style="display:inline-block;text-decoration:none" href="${FORM.u}?usp=pp_url&${FORM.n}=${encodeURIComponent(name)}&${FORM.s}=${Math.round(pts/MAX*100)}${FORM.c?`&${FORM.c}=${encodeURIComponent(COURSES[cur].lv)}`:''}" target="_blank" rel="noopener">📨 রেজাল্ট জমা দিন</a> `:'';
+const PG=m=>{const e={h:'<circle cx="40" cy="42" r="4"/><circle cx="60" cy="42" r="4"/>',t:'<circle cx="42" cy="39" r="4"/><circle cx="62" cy="39" r="4"/>',c:'<path d="M34 44q6-8 12 0M54 44q6-8 12 0" stroke="#111" stroke-width="3" fill="none"/>',o:'<circle cx="40" cy="43" r="4"/><circle cx="60" cy="43" r="4"/><path d="M34 35l10 4M66 35l-10 4" stroke="#111" stroke-width="3"/>'}[m],
+mo={h:'<path d="M43 60q7 7 14 0" stroke="#111" stroke-width="2.5" fill="none"/>',t:'<circle cx="50" cy="62" r="2.5" fill="#111"/>',c:'<path d="M43 59q7 12 14 0z" fill="#c0392b"/>',o:'<path d="M43 65q7-7 14 0" stroke="#111" stroke-width="2.5" fill="none"/>'}[m],
+w=m=='c'?'<ellipse cx="20" cy="45" rx="7" ry="20" transform="rotate(35 20 45)"/><ellipse cx="80" cy="45" rx="7" ry="20" transform="rotate(-35 80 45)"/>':'<ellipse cx="21" cy="64" rx="7" ry="22" transform="rotate(12 21 64)"/><ellipse cx="79" cy="64" rx="7" ry="22" transform="rotate(-12 79 64)"/>';
+return `<svg viewBox="0 0 100 100"><g fill="#111">${w}<ellipse cx="50" cy="58" rx="30" ry="36"/></g><ellipse cx="50" cy="66" rx="21" ry="27" fill="#fff"/><g fill="#111">${e}</g><path d="M44 50h12l-6 8z" fill="#f5a623"/>${mo}<g fill="#f2a1a1" opacity=".7"><ellipse cx="33" cy="52" rx="4" ry="3"/><ellipse cx="67" cy="52" rx="4" ry="3"/></g><g fill="#fb8c3c"><ellipse cx="38" cy="95" rx="9" ry="4"/><ellipse cx="62" cy="95" rx="9" ry="4"/></g>${m=='t'?'<text x="72" y="22" font-size="22" font-weight="700" fill="#f2b632">?</text>':m=='c'?'<text x="70" y="22" font-size="20">✨</text>':''}</svg>`};
+function say(t,m){$('sy').innerHTML=`<div class="say"><div class="pg sv">${PG(m||'h')}</div><div class="bb">${t}</div></div>`}
+function conf(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;for(let n=0;n<26;n++){const e=document.createElement('span');e.className='cf';e.textContent=R(['🎉','⭐','✨','🐧','❄️']);e.style.left=Math.random()*100+'vw';e.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),2300)}}
+function resume(){let v=null;try{v=JSON.parse(localStorage.getItem('p'))}catch(e){}return v&&v.i>1&&v.i<S.length-1?`<button class="btn g" onclick="i=${v.i};pts=${v.pts};draw()">▶ ধাপ ${v.i+1} থেকে চালিয়ে যান</button>`:''}
+const mx=X=>X.reduce((m,s)=>m+(s.t=='place'?s.it.length*10:s.t=='lab'?20:s.t=='mcq'?10:0),0);
+/* ===== COURSE DATA: edit course content here ===== */
+const BA='<div class="ba"><div class="th bad"><i>SALE!!! BEST LOGO CHEAP FAST NO.1 SELLER 24H WORK</i><small>❌ ক্লিক পায় না</small></div><div class="th good"><b>Logo Design</b><span>৩ দিনে ডেলিভারি</span><small>✅ ক্লিক পায়</small></div></div>';
+let S=[],MAX=0,COURSES=[],cur=0,nm_='',U={name:'',c:{}},DB=null,UID=null,tm=0,wp_=0;
+const est=X=>Math.round((X.length-2)*1.8),K=k=>COURSES[k].id,to=p=>Promise.race([p,new Promise(r=>setTimeout(()=>r(null),2500))]);
+function sv(){clearTimeout(tm);tm=setTimeout(async()=>{try{localStorage.setItem('np',JSON.stringify(U))}catch(e){}try{if(DB&&UID)await DB.collection('data/users/'+UID).doc('p').set(JSON.parse(JSON.stringify(U)))}catch(e){}},500)}
+async function load(){try{const L=await fetch('courses/catalog.json').then(r=>r.json());COURSES=(await Promise.all(L.map(f=>fetch('courses/'+f).then(r=>r.json())))).map(j=>({...j,s:[{t:'intro'},...j.steps,{t:'cert'}]}))}catch(e){$('app').textContent='কোর্স লোড হয়নি। ইন্টারনেট বা courses ফোল্ডার যাচাই করুন।';return}try{const u=await to(claude.use('user'));UID=u?await u.id():null;DB=UID?await to(claude.use('db')):null}catch(e){}
+let d=null;try{if(DB&&UID){const r=await DB.collection('data/users/'+UID).doc('p').get();if(r.exists)d=r.data()}}catch(e){}
+if(!d)try{d=JSON.parse(localStorage.getItem('np'))}catch(e){}
+if(d&&d.c)U=d;name=U.name||'';home()}
+function openC(k){cur=k;S=COURSES[k].s;MAX=mx(S);const p=U.c[K(k)]||{};if(p.i>0&&!p.done){i=p.i;pts=p.pts||0;rs=p.rs||[]}else{i=0;pts=0;rs=[]}st=0;draw()}
+function wipe(){const b=$('wp');if(!wp_){wp_=1;b.textContent='⚠ নিশ্চিত? আবার ট্যাপ করুন';return}wp_=0;clearTimeout(tm);U={name:'',c:{}};name='';try{localStorage.removeItem('np')}catch(e){}(async()=>{try{if(DB&&UID)await DB.collection('data/users/'+UID).doc('p').delete()}catch(e){}})();home()}
+function home(){cur=-1;['pt','st','ms','sy'].forEach(k=>$(k).textContent='');$('pb').style.width='0';
+if(!U.name){$('app').innerHTML=`<h1>স্বাগতম 👋</h1><p class="mu">ফ্রি ইন্টারেক্টিভ কোর্স। প্রতিটি শেষে সার্টিফিকেট।</p><label for="nm">আপনার নাম (সার্টিফিকেটে বসবে)</label><input id="nm" type="text" placeholder="আপনার নাম" oninput="nm_=this.value.trim();$('sb').disabled=!nm_"><button id="sb" class="btn" disabled onclick="U.name=name=nm_;sv();home()">শুরু করুন</button><p class="mu" style="font-size:13px">🔒 শুধু নাম ও অগ্রগতি সংরক্ষিত হয়। ইমেইল বা অন্য তথ্য নেওয়া হয় না।</p>`;return}
+name=U.name;const ds=COURSES.filter((c,k)=>(U.c[K(k)]||{}).done).length;
+$('app').innerHTML=`<h2>স্বাগতম, ${U.name.replace(/[<>&]/g,'')}</h2><p class="mu">${ds}/${COURSES.length} কোর্স সম্পন্ন</p>`+COURSES.map((c,k)=>{const p=U.c[K(k)]||{},lk=c.requires&&!(U.c[c.requires]||{}).done,pc=p.done?100:Math.round((p.i||0)/(c.s.length-1)*100);return (c.series&&c.series!==(COURSES[k-1]||{}).series?`<p class="sr">${c.series}</p>`:'')+`<div class="cc ${lk?'lk':''}"><div style="flex:1"><h3>${c.lv}</h3><small class="mu">~${est(c.s)} মিনিট • ${c.t}</small><div class="mini"><i style="width:${pc}%"></i></div></div><button class="btn" style="margin:0" ${lk?'disabled':''} onclick="openC(${k})">${lk?'🔒':p.done?'আবার দেখুন':p.i?'চালিয়ে যান':'শুরু'}</button></div>`}).join('')+`<p class="mu" style="font-size:13px;margin-top:16px">🔒 আপনার তথ্য ও অগ্রগতি শুধু আপনার জন্য সংরক্ষিত${DB?' (সব ডিভাইসে সিঙ্ক)':' (এই ডিভাইসে)'}।</p><button id="wp" class="btn g" onclick="wipe()">🗑 আমার ডেটা মুছুন</button><button id="ib" class="btn" style="display:${ip?'':'none'};margin-top:10px" onclick="inst()">📲 অ্যাপ ইনস্টল করুন</button><p class="mu" style="font-size:13px">iPhone: Safari-তে Share → Add to Home Screen</p>`}
+try{name=localStorage.getItem('n')||''}catch(e){}
+function head(s){return `<h2>${s.h}</h2>`}
+function nav(l){return `<button class="btn" onclick="go()">${l||'পরবর্তী'}</button>`}
+function go(){i++;draw()}
+function draw(){
+ const s=S[i];$('pb').style.width=(i/(S.length-1)*100)+'%';const pc=i/(S.length-1);$('st').textContent=i<S.length-1?`ধাপ ${i+1}/${S.length} • আরও ~${Math.max(1,Math.round((S.length-1-i)*1.8))} মিনিট`:'🎉 সম্পন্ন';$('ms').textContent=pc>=.8?'🏆 প্রায় শেষ! সার্টিফিকেট আপনার হাতের নাগালে':pc>=.5?'⚡ অর্ধেক পার! এভাবেই চালিয়ে যান':pc>.15?'🔥 দারুণ গতি! থামবেন না':'';$('pt').textContent=`স্কোর: ${pts}`;scrollTo(0,0);if(i==1){rs=[];st=0}$('sy').innerHTML='';if(S[i].tip)say(S[i].tip,['place','lab'].includes(S[i].t)?'t':'h');if(i>0&&i<S.length-1){U.c[K(cur)]=Object.assign(U.c[K(cur)]||{},{i,pts,rs});sv()}
+ ({intro,cards,place,lab,mcq,cert})[s.t](s)}
+function intro(){const c=COURSES[cur];$('app').innerHTML=`<div class="hero"><small>${c.lv} • ~${est(S)} মিনিট • ১০০% ফ্রি</small><div class="say" style="margin:10px 0"><div class="pg sv">${PG('h')}</div><div class="bb">${c.requires?'আবার স্বাগতম! এবার আরও গভীরে 🐧':'হ্যালো! আমি পেঙ্গু 🐧, আপনার গাইড।'}</div></div><h1>Graphics Design for Marketplaces</h1><p>${c.d}</p>${c.ba?BA:''}<div class="chips"><span>⏱ ~${est(S)} মিনিট</span><span>🎮 ইন্টারেক্টিভ গেম</span><span>🏆 সার্টিফিকেট</span></div></div><p><b>যা শিখবেন:</b> ${c.l}</p><button class="btn" onclick="go()">শুরু করুন</button>`}
+function cards(s){$('app').innerHTML=head(s)+`<p class="mu">${s.q}</p><div class="fl">${s.c.map(c=>`<button class="fc" onclick="this.classList.toggle('on')"><span class="a">${c[0]}</span><span class="b">${c[1]}</span></button>`).join('')}</div>`+nav()}
+function place(s){
+ let pl={},sel=null,done=false,ok=0;const ix=s.it.map((_,k)=>k).sort(()=>Math.random()-.5);
+ const chip=k=>`<span class="chip ${sel===k?'sel':''} ${done?(pl[k]===s.it[k][1]?'ok':'no'):''}" draggable="${!done}" ondragstart="event.dataTransfer.setData('t',${k})" onclick="event.stopPropagation();pick(${k})">${s.it[k][0]}</span>`;
+ window.pick=k=>{if(done)return;if(pl[k]!=null){pl[k]=null;sel=null}else sel=k;r()};
+ window.put=z=>{if(done||sel==null)return;if(s.cap&&ix.some(k=>pl[k]===z))return;pl[sel]=z;sel=null;r()};
+ window.dr=(e,z)=>{e.preventDefault();sel=+e.dataTransfer.getData('t');put(z)};window.dp=e=>{e.preventDefault();const k=+e.dataTransfer.getData('t');pl[k]=null;sel=null;r()};window.chk=()=>{done=true;ok=ix.filter(k=>pl[k]===s.it[k][1]).length;pts+=ok*10;const all=ok==s.it.length;say(all?R(G):'প্রায় হয়ে গেছে, লাল চিহ্নিতগুলো দেখুন 💪',all?'c':'t');if(all){st++;conf()}else st=0;rs.push({n:s.h.split(': ').pop(),ok:ok/s.it.length>=.75});$('pt').textContent=`স্কোর: ${pts}`;r()};
+ function r(){const all=ix.every(k=>pl[k]!=null);
+  $('app').innerHTML=head(s)+`<p class="mu">${s.q}</p><div class="pool" ondragover="event.preventDefault()" ondrop="dp(event)">${ix.filter(k=>pl[k]==null).map(chip).join('')||'<span class="mu">সব আইটেম বসানো হয়েছে</span>'}</div>`+s.z.map((z,n)=>`<div class="zone" onclick="put(${n})" ondragover="event.preventDefault()" ondrop="dr(event,${n})"><b>${z}</b>${ix.filter(k=>pl[k]===n).map(chip).join('')}</div>`).join('')+(done?`<div class="fb">${ok}/${s.it.length} সঠিক। লাল চিহ্নিতগুলো আবার ভাবুন।</div>`+nav():`<button class="btn" ${all?'':'disabled'} onclick="chk()">যাচাই করুন</button>`)}
+ r()}
+function L(h){const c=parseInt(h.slice(1),16);return[c>>16&255,c>>8&255,c&255].map(v=>{v/=255;return v<=.03928?v/12.92:((v+.055)/1.055)**2.4}).reduce((a,v,k)=>a+v*[.2126,.7152,.0722][k],0)}
+function lab(){let t='#9aa3d6',b='#ffffff',done=false;
+ window.up=()=>{t=$('tc').value;b=$('bc').value;const a=L(t),c=L(b),R=(Math.max(a,c)+.05)/(Math.min(a,c)+.05);$('pv').style.cssText=`color:${t};background:${b}`;$('rt').innerHTML=`কনট্রাস্ট রেশিও: <b>${R.toFixed(1)}:1</b> ${R>=4.5?'✅ পড়ার জন্য ভালো':'❌ ৪.৫ এর নিচে, পড়া কঠিন'}`;$('lb').disabled=R<4.5};
+ $('app').innerHTML=`<h2>কালার ল্যাব: কনট্রাস্ট</h2><p class="mu">টেক্সট ও ব্যাকগ্রাউন্ডের রঙ বদলান যতক্ষণ না রেশিও ৪.৫ বা তার বেশি হয়। এটি পড়ার সুবিধার সাধারণ মানদণ্ড।</p><div id="pv" class="lab" style="color:${t};background:${b}">৫ দিনে লোগো ডিজাইন</div><div class="row"><label>টেক্সট <input id="tc" type="color" value="${t}" oninput="up()"></label><label>ব্যাকগ্রাউন্ড <input id="bc" type="color" value="${b}" oninput="up()"></label></div><p id="rt"></p><button id="lb" class="btn" disabled onclick="pts+=20;rs.push({n:'কনট্রাস্ট',ok:true});conf();go()">সম্পন্ন (+২০)</button>`;up()}
+function mcq(s){$('app').innerHTML=head(s)+`<p>${s.q}</p>`+s.o.map((o,k)=>`<button class="opt" onclick="ans(${k})">${o}</button>`).join('')+`<button id="fi" class="btn g" onclick="fifty()">✂️ ৫০:৫০ (পয়েন্ট অর্ধেক)</button><div id="fb"></div>`;
+ let d=false,half=false;window.fifty=()=>{if(d||half)return;half=true;let n=0;document.querySelectorAll('.opt').forEach((b,k)=>{if(k!==s.a&&n<2){b.style.display='none';n++}});$('fi').disabled=true};
+window.ans=k=>{if(d)return;d=true;$('fi').style.display='none';const bs=document.querySelectorAll('.opt'),c=k===s.a;bs[s.a].classList.add('ok');if(c){pts+=half?5:10;st++;if(st>1)conf()}else{bs[k].classList.add('no');st=0}rs.push({n:s.h.split(': ').pop(),ok:c});$('pt').textContent=`স্কোর: ${pts}`;say(R(c?G:B),c?'c':'o');$('fb').innerHTML=`<div class="fb">${c?'✅ সঠিক! ':'❌ ঠিক হয়নি। '}${s.w}${st>1?`<br>🔥 ${st} টানা সঠিক!`:''}</div>`+nav()}}
+function cert(){const p=pts/MAX>=(COURSES[cur].pass||.7);if(p){const o=U.c[K(cur)]=U.c[K(cur)]||{};o.done=1;o.sc=Math.max(o.sc||0,pts);o.i=0;o.pts=0;sv()}setTimeout(()=>{if(p)conf();say(p?'অভিনন্দন! আপনি কোর্স শেষ করেছেন 🎓':'আরেকবার চেষ্টা করলেই পারবেন, আমি আছি! 💪',p?'c':'o')},60);const d=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+ $('app').innerHTML=p?`<div class="cert"><div class="lg" style="margin:0 auto 6px"><svg viewBox="0 0 100 100"><g fill="none" stroke="#F2B632" stroke-width="6" stroke-linecap="round"><path d="M72 20A38 38 0 1 0 80 74"/><path d="M62 52Q76 42 82 22"/></g><path d="M32 72V28h8l20 28V28h8v44h-8L40 44v28z" fill="#F2B632"/><path d="M74 14l16-2-6 16z" fill="#F2B632"/></svg></div><b>NUVIA Creatives</b><h1>Certificate of Completion</h1><p>This certifies that</p><div class="nm">${name.replace(/[<>&]/g,'')}</div><p>has completed the course<br><b>Graphics Design for Marketplaces</b><br>${COURSES[cur].lv}</p><p>Score: ${pts}/${MAX} • ${rk(pts/MAX)} • ${d}</p><div class="pg sv" style="margin:8px auto">${PG('c')}</div><small class="mu">Ideas. Design. Build. Grow.</small></div><p class="mu" style="margin-top:14px">আপনার ফলাফল:</p><div class="pool">${rs.map(r=>`<span class="chip ${r.ok?'ok':'no'}">${r.ok?'✅':'🔁'} ${r.n}</span>`).join('')}</div><a class="btn" style="display:inline-block;text-decoration:none" href="https://www.facebook.com/share/1cC2HEqDDu/" target="_blank" rel="noopener">NUVIA Creatives-এর সাথে সংযুক্ত থাকুন</a> ${fl()}<button class="btn" onclick="print()">প্রিন্ট / PDF সেভ</button> <button class="btn g" onclick="pts=0;i=1;draw()">আবার শুরু</button> <button class="btn" onclick="home()">🏠 কোর্স তালিকা</button>`:`<h2>আরেকটু চেষ্টা দরকার</h2><p>স্কোর ${pts}/${MAX}। সার্টিফিকেটের জন্য কমপক্ষে ${Math.round((COURSES[cur].pass||.7)*100)}% লাগবে।</p><button class="btn" onclick="pts=0;i=1;draw()">আবার চেষ্টা করুন</button>`}
+let ip=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();ip=e;const b=$('ib');if(b)b.style.display=''});function inst(){if(ip){ip.prompt();ip=null;const b=$('ib');if(b)b.style.display='none'}}
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+$('app').textContent='লোড হচ্ছে…';load();
+</script></body></html>
